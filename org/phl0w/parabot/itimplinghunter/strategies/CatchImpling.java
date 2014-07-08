@@ -16,7 +16,7 @@ public class CatchImpling implements Strategy {
 
     @Override
     public void execute() {
-        final Npc[] nearestImplings = Npcs.getNearest(iTImplingHunter.ZOMBIE_IMPLING);
+        final Npc[] nearestImplings = Npcs.getNearest(iTImplingHunter.selectedImpling.getNpcId());
         if (nearestImplings.length > 0) {
             final Npc nearestImpling = nearestImplings[0];
             if (nearestImpling != null) {

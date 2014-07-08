@@ -6,7 +6,8 @@ import org.parabot.environment.scripts.Script;
 import org.parabot.environment.scripts.ScriptManifest;
 import org.parabot.environment.scripts.framework.Strategy;
 import org.phl0w.parabot.itimplinghunter.strategies.CatchImpling;
-import org.phl0w.parabot.itimplinghunter.user.Utilities;
+import org.phl0w.parabot.itimplinghunter.utilities.Impling;
+import org.phl0w.parabot.itimplinghunter.utilities.Utilities;
 import org.rev317.min.api.methods.Inventory;
 import org.rev317.min.api.methods.Skill;
 
@@ -24,13 +25,6 @@ import java.util.ArrayList;
 public class iTImplingHunter extends Script implements Paintable {
 
     /**
-     * Constants
-     */
-    public static final int ZOMBIE_IMPLING = 6342;
-    public static final int DRAGON_IMPLING = 0;                //TODO: find id
-    public static final int KINGLY_IMPLING = 0; //TODO: find id
-
-    /**
      * User variables
      */
     public static int startLevel = 0;
@@ -39,6 +33,7 @@ public class iTImplingHunter extends Script implements Paintable {
     public static int lootedItems = 0;
     public static int startXp = 0;
     public static long startTime;
+    public static Impling selectedImpling = Impling.KINGLY;
 
     private final ArrayList<Strategy> strategies = new ArrayList<>();
 
@@ -57,6 +52,6 @@ public class iTImplingHunter extends Script implements Paintable {
 
     @Override
     public void paint(Graphics g) {
-        org.phl0w.parabot.itimplinghunter.user.Paint.onRepaint(g);
+        org.phl0w.parabot.itimplinghunter.utilities.Paint.onRepaint(g);
     }
 }
