@@ -11,6 +11,7 @@ import org.phl0w.parabot.itimplinghunter.utilities.Utilities;
 import org.rev317.min.api.methods.Inventory;
 import org.rev317.min.api.methods.Skill;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -33,12 +34,15 @@ public class iTImplingHunter extends Script implements Paintable {
     public static int lootedItems = 0;
     public static int startXp = 0;
     public static long startTime;
+    public static String selected = "zombie";
     public static Impling selectedImpling = Impling.KINGLY;
 
     private final ArrayList<Strategy> strategies = new ArrayList<>();
 
     @Override
     public boolean onExecute() {
+        selected = JOptionPane.showInputDialog("Enter the name of the impling you want to hunt:");
+        selectedImpling = getSelectedImpling();
         startLevel = Utilities.getLevel(Skill.CONSTRUCTION);
         prevInvCount = Inventory.getCount();
         startMoney = Utilities.getMoney();
@@ -47,6 +51,15 @@ public class iTImplingHunter extends Script implements Paintable {
         strategies.add(new CatchImpling());
         provide(strategies);
         return true;
+    }
+
+    private Impling getSelectedImpling() {
+        for (Impling i : Impling.values()) {
+            if (i.name().equalsIgnoreCase(selected)) {
+                return i;
+            }
+        }
+        return Impling.ZOMBIE;
     }
 
 
