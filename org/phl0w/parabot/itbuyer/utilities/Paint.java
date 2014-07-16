@@ -2,7 +2,6 @@ package org.phl0w.parabot.itbuyer.utilities;
 
 import org.parabot.environment.input.Mouse;
 import org.phl0w.parabot.itbuyer.iTBuyer;
-import org.rev317.min.api.methods.Inventory;
 
 import java.awt.*;
 
@@ -23,7 +22,7 @@ public class Paint {
     }
 
     public static void onRepaint(Graphics g) {
-        final int itemsBought = Inventory.getCount(iTBuyer.itemId + 1) - iTBuyer.startItemCount;
+        final int itemsBought = Utilities.getStackSize() - iTBuyer.startItemCount;
         final Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(Color.RED);
         g2d.setComposite(bgComposite);
@@ -46,5 +45,6 @@ public class Paint {
         if (iTBuyer.status.equals("Sleeping")) {
             g2d.drawString("Sleep for " + (iTBuyer.sleepTimer - System.currentTimeMillis()) / 1000 + " secs", 12, 138);
         }
+        g2d.drawString("Randoms solved: " + iTBuyer.rCount, 12, 153);
     }
 }

@@ -9,7 +9,7 @@ import org.rev317.min.api.methods.Menu;
 public class Buy implements Strategy {
     @Override
     public boolean activate() {
-        return Utilities.isShopScreenOpen();
+        return Utilities.isLoggedIn() && Utilities.isShopScreenOpen();
     }
 
     @Override
