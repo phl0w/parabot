@@ -1,11 +1,11 @@
-package org.phl0w.parabot.itsuperprayers.strategies;
+package org.phl0w.parabot.itbuyer.strategies;
 
 import org.parabot.environment.api.utils.Time;
 import org.parabot.environment.input.Keyboard;
 import org.parabot.environment.scripts.framework.SleepCondition;
 import org.parabot.environment.scripts.framework.Strategy;
-import org.phl0w.parabot.itsuperprayers.iTSuperPrayers;
-import org.phl0w.parabot.itsuperprayers.utilities.Utilities;
+import org.phl0w.parabot.itbuyer.iTBuyer;
+import org.phl0w.parabot.itbuyer.utilities.Utilities;
 
 public class Relog implements Strategy {
     public boolean activate() {
@@ -13,8 +13,8 @@ public class Relog implements Strategy {
     }
 
     public void execute() {
-        iTSuperPrayers.status = "Relogging";
-        Keyboard.getInstance().sendKeys(iTSuperPrayers.password);
+        iTBuyer.status = "Relogging";
+        Keyboard.getInstance().sendKeys(iTBuyer.password);
         Time.sleep(new SleepCondition() {
             @Override
             public boolean isValid() {

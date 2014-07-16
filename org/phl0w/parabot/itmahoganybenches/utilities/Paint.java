@@ -1,8 +1,7 @@
-package org.phl0w.parabot.itsuperprayers.utilities;
+package org.phl0w.parabot.itmahoganybenches.utilities;
 
 import org.parabot.environment.input.Mouse;
-import org.phl0w.parabot.italtar.iTAltar;
-import org.phl0w.parabot.itsuperprayers.iTSuperPrayers;
+import org.phl0w.parabot.itmahoganybenches.iTMahoganyBenches;
 import org.rev317.min.api.methods.Skill;
 
 import java.awt.*;
@@ -24,10 +23,10 @@ public class Paint {
     }
 
     public static void onRepaint(Graphics g) {
-        final int levelsGained = Utilities.getLevel(Skill.HERBLORE) - iTSuperPrayers.startLevel;
-        final int xpGained = Skill.HERBLORE.getExperience() - iTSuperPrayers.startXp;
+        final int xpGained = Skill.HUNTER.getExperience() - iTMahoganyBenches.startXp;
+        final int levelsGained = Utilities.getLevel(Skill.HUNTER) - iTMahoganyBenches.startLevel;
         final Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(Color.CYAN);
+        g2d.setColor(Color.RED);
         g2d.setComposite(bgComposite);
         g2d.fill(bg);
         g2d.setColor(Color.BLACK);
@@ -37,16 +36,16 @@ public class Paint {
         g2d.fill(new Rectangle((int) Mouse.getInstance().getPoint().getX() + 1, (int) Mouse.getInstance().getPoint().getY() - 4, 2, 15));
         g2d.fill(new Rectangle((int) Mouse.getInstance().getPoint().getX() - 6, (int) Mouse.getInstance().getPoint().getY() + 2, 16, 2));
         g2d.setFont(title);
-        g2d.drawString("iTSuperPrayers", 12, 43);
+        g2d.drawString("iTConstruction", 12, 43);
         g2d.setFont(author);
         g2d.drawString("By: _phl0w", 12, 58);
         g2d.setFont(info);
-        g2d.drawString("Runtime: " + Utilities.formatRuntime(iTSuperPrayers.startTime), 12, 78);
-        g2d.drawString("Herblore: " + Utilities.getLevel(Skill.HERBLORE) + " (+" + levelsGained + ")", 12, 93);
+        g2d.drawString("Runtime: " + Utilities.formatRuntime(iTMahoganyBenches.startTime), 12, 78);
+        g2d.drawString("Construction: " + Skill.HUNTER.getLevel() + " (+" + levelsGained + ")", 12, 93);
         g2d.drawString("XP gained: " + xpGained, 12, 108);
-        g2d.drawString("XP/h: " + Utilities.getPerHour(xpGained), 12, 123);
-        g2d.drawString("Potions made: " + iTSuperPrayers.potionsMade, 12, 138);
-        g2d.drawString("Potions/h: " + Utilities.getPerHour(iTSuperPrayers.potionsMade), 12, 153);
-        g2d.drawString("Status: " + iTSuperPrayers.status, 12, 168);
+        g2d.drawString("Xp/h: " + Utilities.getPerHour(xpGained), 12, 123);
+        g2d.drawString("Items made: " + iTMahoganyBenches.made, 12, 138);
+        g2d.drawString("Made/h: " + Utilities.getPerHour(iTMahoganyBenches.made), 12, 153);
+        g2d.drawString("Status: " + iTMahoganyBenches.status, 12, 178);
     }
 }

@@ -1,4 +1,4 @@
-package org.phl0w.parabot.itsuperprayers.utilities;
+package org.phl0w.parabot.itpohchopper.utilities;
 
 import org.rev317.min.api.wrappers.Tile;
 

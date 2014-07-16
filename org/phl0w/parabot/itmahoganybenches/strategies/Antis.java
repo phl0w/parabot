@@ -1,10 +1,10 @@
-package org.phl0w.parabot.itsuperprayers.strategies;
+package org.phl0w.parabot.itmahoganybenches.strategies;
 
 import org.parabot.environment.api.utils.Time;
 import org.parabot.environment.scripts.framework.SleepCondition;
 import org.parabot.environment.scripts.framework.Strategy;
-import org.phl0w.parabot.itsuperprayers.iTSuperPrayers;
-import org.phl0w.parabot.itsuperprayers.utilities.Area;
+import org.phl0w.parabot.itmahoganybenches.iTMahoganyBenches;
+import org.phl0w.parabot.itmahoganybenches.utilities.Area;
 import org.rev317.min.api.methods.Npcs;
 import org.rev317.min.api.methods.Players;
 import org.rev317.min.api.methods.SceneObjects;
@@ -37,7 +37,7 @@ public class Antis implements Strategy {
     }
 
     public void execute() {
-        iTSuperPrayers.status = "Antirandom";
+        iTMahoganyBenches.status = "Antirandom";
         // Makes the noise
         if (runnable != null)
             runnable.run();
