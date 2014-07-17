@@ -26,6 +26,8 @@ public class HandleObject implements Strategy {
             Time.sleep(800, 1200);
         } else {
             Menu.sendAction(1062, 1326650151, 39, 38);
+            //[index: 1, action1: 1326653478, action2: 38, action3: 64, id: 1062]
+            Menu.sendAction(1062, 1326653478, 38, 64);
             Time.sleep(new SleepCondition() {
                 @Override
                 public boolean isValid() {

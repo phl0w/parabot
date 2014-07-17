@@ -24,7 +24,7 @@ public class iTPOHPlanker extends Script implements Paintable {
     public static String status = "Starting up";
     public static String password;
     public static Log selectedLog = Log.OAK;
-    public static final int[] WORKBENCHES = {13706};
+    public static final int[] WORKBENCHES = {13705, 13706};
 
     private final ArrayList<Strategy> strategies = new ArrayList<>();
 
