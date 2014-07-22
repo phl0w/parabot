@@ -1,6 +1,7 @@
-package org.phl0w.parabot.itpohchopper.utilities;
+package org.phl0w.parabot.itrunebarsmelter.utilities;
 
-import org.phl0w.parabot.itpohchopper.iTPOHChopper;
+import org.phl0w.parabot.itrunebarsmelter.iTRuneBarSmelter;
+import org.phl0w.parabot.itruneminer.iTRuneMiner;
 import org.rev317.min.Loader;
 import org.rev317.min.api.methods.SceneObjects;
 import org.rev317.min.api.methods.Skill;
@@ -13,12 +14,8 @@ public class Utilities {
         return Loader.getClient().getOpenInterfaceId() == 23350;
     }
 
-    public static boolean isOpenBankScreenOpen() {
-        return Loader.getClient().getBackDialogId() == 2480;
-    }
-
-    public static boolean isGuestOpenBankScreenOpen() {
-        return Loader.getClient().getBackDialogId() == 2469;
+    public static boolean isSmeltScreenOpen() {
+        return Loader.getClient().getBackDialogId() == 2400;
     }
 
     public static boolean isLoggedIn() {
@@ -44,15 +41,6 @@ public class Utilities {
     }
 
     public static int getPerHour(final int variable) {
-        return (int) (variable * 3600000D / (System.currentTimeMillis() - iTPOHChopper.startTime));
-    }
-
-    public static Tree getTree(final String name) {
-        for (final Tree t : Tree.values()) {
-            if (t.name().equalsIgnoreCase(name)) {
-                return t;
-            }
-        }
-        return Tree.NORMAL;
+        return (int) (variable * 3600000D / (System.currentTimeMillis() - iTRuneBarSmelter.startTime));
     }
 }

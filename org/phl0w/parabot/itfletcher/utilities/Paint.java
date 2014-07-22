@@ -1,7 +1,7 @@
-package org.phl0w.parabot.itpohchopper.utilities;
+package org.phl0w.parabot.itfletcher.utilities;
 
 import org.parabot.environment.input.Mouse;
-import org.phl0w.parabot.itpohchopper.iTPOHChopper;
+import org.phl0w.parabot.itfletcher.iTFletcher;
 import org.rev317.min.api.methods.Skill;
 
 import java.awt.*;
@@ -23,10 +23,10 @@ public class Paint {
     }
 
     public static void onRepaint(Graphics g) {
-        final int levelsGained = Utilities.getLevel(Skill.WOODCUTTING) - iTPOHChopper.startLevel;
-        final int xpGained = Skill.WOODCUTTING.getExperience() - iTPOHChopper.startXp;
+        final int levelsGained = Utilities.getLevel(Skill.FLETCHING) - iTFletcher.startLevel;
+        final int xpGained = Skill.FLETCHING.getExperience() - iTFletcher.startXp;
         final Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(Color.ORANGE);
+        g2d.setColor(Color.LIGHT_GRAY);
         g2d.setComposite(bgComposite);
         g2d.fill(bg);
         g2d.setColor(Color.BLACK);
@@ -36,17 +36,18 @@ public class Paint {
         g2d.fill(new Rectangle((int) Mouse.getInstance().getPoint().getX() + 1, (int) Mouse.getInstance().getPoint().getY() - 4, 2, 15));
         g2d.fill(new Rectangle((int) Mouse.getInstance().getPoint().getX() - 6, (int) Mouse.getInstance().getPoint().getY() + 2, 16, 2));
         g2d.setFont(title);
-        g2d.drawString("iTPOHChopper", 12, 43);
+        g2d.drawString("iTFletcher", 12, 43);
         g2d.setFont(author);
         g2d.drawString("By: _phl0w", 12, 58);
         g2d.setFont(info);
-        g2d.drawString("Runtime: " + Utilities.formatRuntime(iTPOHChopper.startTime), 12, 78);
-        g2d.drawString("Woodcutting: " + Utilities.getLevel(Skill.WOODCUTTING) + " (+" + levelsGained + ")", 12, 93);
+        g2d.drawString("Runtime: " + Utilities.formatRuntime(iTFletcher.startTime), 12, 78);
+        g2d.drawString("Fletching: " + Utilities.getLevel(Skill.FLETCHING) + " (+" + levelsGained + ")", 12, 93);
         g2d.drawString("XP gained: " + xpGained, 12, 108);
         g2d.drawString("XP/h: " + Utilities.getPerHour(xpGained), 12, 123);
-        g2d.drawString("Logs chopped: " + iTPOHChopper.logsChopped, 12, 138);
-        g2d.drawString("Logs/h: " + Utilities.getPerHour(iTPOHChopper.logsChopped), 12, 153);
-        g2d.drawString("Status: " + iTPOHChopper.status, 12, 168);
-        g2d.drawString("Chopping: " + iTPOHChopper.selectedTree.name(), 12, 183);
+        g2d.drawString("Logs fletched: " + iTFletcher.fletched, 12, 138);
+        g2d.drawString("Fletched/h: " + Utilities.getPerHour(iTFletcher.fletched), 12, 153);
+        g2d.drawString("Status: " + iTFletcher.status, 12, 168);
+        g2d.drawString("Crafting: " + iTFletcher.item.name(), 12, 183);
     }
 }
+

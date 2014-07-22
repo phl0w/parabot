@@ -14,7 +14,7 @@ import org.rev317.min.api.methods.Skill;
 import java.awt.*;
 import java.util.ArrayList;
 
-@ScriptManifest(author = "phl0w", name = "iTAltar", category = Category.PRAYER, version = 1.0, description = "Uses bones on altar in Edgeville.", servers = {"PKHonor"})
+@ScriptManifest(author = "phl0w", name = "iTAltar", category = Category.PRAYER, version = 1.0, description = "Uses dragon bones on altar in Edgeville.", servers = {"PKHonor"})
 public class iTAltar extends Script implements Paintable {
 
     public static int startLevel = 0;

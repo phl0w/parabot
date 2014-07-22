@@ -8,7 +8,6 @@ import org.parabot.environment.scripts.framework.Strategy;
 import org.phl0w.parabot.itpohchopper.strategies.Antis;
 import org.phl0w.parabot.itpohchopper.strategies.Banker;
 import org.phl0w.parabot.itpohchopper.strategies.Chopper;
-import org.phl0w.parabot.itpohchopper.strategies.Relog;
 import org.phl0w.parabot.itpohchopper.utilities.Tree;
 import org.phl0w.parabot.itpohchopper.utilities.Utilities;
 import org.rev317.min.api.methods.Skill;
@@ -26,18 +25,18 @@ public class iTPOHChopper extends Script implements Paintable {
     public static int logsChopped;
     public static long startTime;
     public static String status = "Starting up";
-    public static String password;
     public static Tree selectedTree = Tree.OAK;
+    public static String[] options = {"Normal", "Oak", "Willow", "Maple", "Yew", "Magic"};
 
     private final ArrayList<Strategy> strategies = new ArrayList<>();
 
     @Override
     public boolean onExecute() {
-        password = JOptionPane.showInputDialog("Please enter your password for relogging purposes:");
+        String tree = (String) JOptionPane.showInputDialog(null, "Select a tree to chop", "Select tree", JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+        selectedTree = Utilities.getTree(tree);
         startTime = System.currentTimeMillis();
         startXp = Skill.WOODCUTTING.getExperience();
         startLevel = Utilities.getLevel(Skill.WOODCUTTING);
-        strategies.add(new Relog());
         strategies.add(new Antis());
         strategies.add(new Chopper());
         strategies.add(new Banker());

@@ -27,19 +27,23 @@ public class Banker implements Strategy {
                 Time.sleep(new SleepCondition() {
                     @Override
                     public boolean isValid() {
-                        return Utilities.isOpenBankScreenOpen();
+                        return Utilities.isOpenBankScreenOpen() || Utilities.isGuestOpenBankScreenOpen();
                     }
                 }, 2000);
             }
         }
-        Menu.sendAction(315, 893, 262, 2482);
+        if (Utilities.isOpenBankScreenOpen()) {
+            Menu.sendAction(315, 893, 262, 2482);
+        } else {
+            Menu.sendAction(315, 21397504, 241, 2471);
+        }
         Time.sleep(new SleepCondition() {
             @Override
             public boolean isValid() {
                 return Utilities.isBankOpen();
             }
         }, 2000);
-        iTPOHChopper.logsChopped += iTPOHChopper.selectedTree.getItemId();
+        iTPOHChopper.logsChopped += Inventory.getCount(iTPOHChopper.selectedTree.getItemId() + 1);
         Menu.sendAction(646, 2481, 0, 23412);
         Time.sleep(new SleepCondition() {
             @Override
