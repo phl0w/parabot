@@ -3,10 +3,9 @@ package org.phl0w.parabot.itrunebarsmelter.strategies;
 import org.parabot.environment.api.utils.Time;
 import org.parabot.environment.scripts.framework.SleepCondition;
 import org.parabot.environment.scripts.framework.Strategy;
-import org.phl0w.parabot.itbuyer.iTBuyer;
-import org.phl0w.parabot.itbuyer.utilities.Utilities;
 import org.phl0w.parabot.itrunebarsmelter.iTRuneBarSmelter;
-import org.phl0w.parabot.itsuperprayers.utilities.Area;
+import org.phl0w.parabot.itrunebarsmelter.utilities.Area;
+import org.phl0w.parabot.itrunebarsmelter.utilities.Utilities;
 import org.rev317.min.api.methods.Players;
 import org.rev317.min.api.methods.SceneObjects;
 import org.rev317.min.api.wrappers.Npc;
@@ -79,8 +78,6 @@ public class Antis implements Strategy {
 
                 System.out.println("Sandwich lady/Old man random has been completed");
             }
-
-            iTBuyer.rCount++;
         }
     }
 }

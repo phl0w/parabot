@@ -3,8 +3,10 @@ package org.phl0w.parabot.itrunebarsmelter.utilities;
 import org.phl0w.parabot.itrunebarsmelter.iTRuneBarSmelter;
 import org.phl0w.parabot.itruneminer.iTRuneMiner;
 import org.rev317.min.Loader;
+import org.rev317.min.api.methods.Npcs;
 import org.rev317.min.api.methods.SceneObjects;
 import org.rev317.min.api.methods.Skill;
+import org.rev317.min.api.wrappers.Npc;
 
 import java.text.DecimalFormat;
 
@@ -42,5 +44,20 @@ public class Utilities {
 
     public static int getPerHour(final int variable) {
         return (int) (variable * 3600000D / (System.currentTimeMillis() - iTRuneBarSmelter.startTime));
+    }
+
+    public static Npc getNearestRandom() {
+        int[] randoms = {410, 1091, 3117, 3022, 3351, 409};
+        final Npc[] nearest = Npcs.getNearest(randoms);
+        if (nearest.length > 0) {
+            for (Npc n : nearest) {
+                if (n != null) {
+                    if (n.getLocation().distanceTo() < 3) {
+                        return n;
+                    }
+                }
+            }
+        }
+        return null;
     }
 }

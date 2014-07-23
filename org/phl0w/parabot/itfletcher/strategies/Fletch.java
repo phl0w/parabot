@@ -12,6 +12,8 @@ import org.rev317.min.api.methods.Inventory;
 import org.rev317.min.api.methods.Menu;
 import org.rev317.min.api.methods.Players;
 
+import java.awt.event.KeyEvent;
+
 public class Fletch implements Strategy {
     @Override
     public boolean activate() {
@@ -38,11 +40,11 @@ public class Fletch implements Strategy {
             Time.sleep(new SleepCondition() {
                 @Override
                 public boolean isValid() {
-                    return !Utilities.isFletchBackDialogueOpen();
+                    return !Utilities.isFletchBackDialogueOpen() && Utilities.getInputState() == 1;
                 }
             }, 2000);
-            Time.sleep(300, 500);
-            Keyboard.getInstance().sendKeys("27");
+            Utilities.setInputString("27");
+            Keyboard.getInstance().clickKey(KeyEvent.VK_ENTER);
             Time.sleep(new SleepCondition() {
                 @Override
                 public boolean isValid() {

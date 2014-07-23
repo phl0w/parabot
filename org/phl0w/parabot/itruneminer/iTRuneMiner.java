@@ -5,11 +5,11 @@ import org.parabot.environment.scripts.Category;
 import org.parabot.environment.scripts.Script;
 import org.parabot.environment.scripts.ScriptManifest;
 import org.parabot.environment.scripts.framework.Strategy;
-import org.phl0w.parabot.itruneminer.strategies.Antis;
 import org.phl0w.parabot.itruneminer.strategies.Bank;
 import org.phl0w.parabot.itruneminer.strategies.Mine;
-import org.phl0w.parabot.itruneminer.strategies.Relog;
 import org.phl0w.parabot.itruneminer.utilities.Utilities;
+import org.phl0w.parabot.util.Antis;
+import org.phl0w.parabot.util.Relog;
 import org.rev317.min.api.methods.Skill;
 
 import javax.swing.*;
@@ -24,15 +24,15 @@ public class iTRuneMiner extends Script implements Paintable {
     public static long startTime;
     public static final int RUNE_ORE_ID = 451;
     public static String status = "Starting up";
-    public static String password;
 
     @Override
     public boolean onExecute() {
-        password = JOptionPane.showInputDialog("Please enter your password for relogging purposes:");
+        final String username = JOptionPane.showInputDialog("Please enter your username for relogging purposes:");
+        final String password = JOptionPane.showInputDialog("Please enter your password for relogging purposes:");
         startXp = Skill.MINING.getExperience();
         startLevel = Utilities.getLevel(Skill.MINING);
         startTime = System.currentTimeMillis();
-        strategies.add(new Relog());
+        strategies.add(new Relog(username, password));
         strategies.add(new Antis());
         strategies.add(new Bank());
         strategies.add(new Mine());

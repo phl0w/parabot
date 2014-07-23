@@ -6,11 +6,12 @@ import org.rev317.min.api.methods.Inventory;
 import org.rev317.min.api.methods.SceneObjects;
 import org.rev317.min.api.methods.Skill;
 
+import java.lang.reflect.Field;
 import java.text.DecimalFormat;
 
 public class Utilities {
 
-    public static boolean isLoggedIn() {
+    public static boolean isLoggedIn2() {
         return SceneObjects.getNearest().length > 0;
     }
 
@@ -66,6 +67,40 @@ public class Utilities {
             }
         }
         return 0;
+    }
+
+    public static int getInputState() {
+        try {
+            final Class<?> c = Loader.getClient().getClass();
+            final Field f = c.getDeclaredField("aq");
+            f.setAccessible(true); // it's a private field
+            return f.getInt(Loader.getClient());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+    public static boolean isLoggedIn() {
+        try {
+            final Class<?> c = Loader.getClient().getClass();
+            final Field f = c.getDeclaredField("aj");
+            return f.getBoolean(Loader.getClient());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static void setInputString(final String str) {
+        try {
+            final Class<?> c = Loader.getClient().getClass();
+            final Field f = c.getDeclaredField("eY");
+            f.setAccessible(true);
+            f.set(Loader.getClient(), str);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

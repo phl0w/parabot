@@ -22,18 +22,19 @@ public class iTFletcher extends Script implements Paintable {
 
     public static int startXp, startLevel, fletched;
     public static long startTime;
-    public static String status = "Startup";
+    public static String status = "Startup.";
     public static FletchData item = FletchData.MAGIC_LONGBOW;
     private final ArrayList<Strategy> strategies = new ArrayList<>();
 
     public boolean onExecute() {
+        final String username = JOptionPane.showInputDialog("Please enter your username for relogging purposes:");
         final String password = JOptionPane.showInputDialog("Please enter your password for relogging purposes:");
         final String i = (String) JOptionPane.showInputDialog(null, "Select a item to carve", "Select item", JOptionPane.QUESTION_MESSAGE, null, Utilities.getList(), Utilities.getList()[0]);
         item = Utilities.getItem(i);
         startXp = Skill.FLETCHING.getExperience();
         startLevel = Utilities.getLevel(Skill.FLETCHING);
         startTime = System.currentTimeMillis();
-        strategies.add(new Relog(password));
+        strategies.add(new Relog(username, password));
         strategies.add(new Antis());
         strategies.add(new Bank());
         strategies.add(new Fletch());
